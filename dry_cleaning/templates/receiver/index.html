@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %}Приймальник замовлень{% endblock %}
+{% block content %} {% load static %}
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li><a class="nav-link active" href=""
+        ><button class="btn btn-outline-primary side-btn">Клієнти</button>
+      </a></li>
+      <li> <a class="nav-link active" href="">
+        <button class="btn btn-outline-primary side-btn">Замовлення</button>
+      </a></li>
+
+     
+<li><a class="nav-link active" href="">
+  <button class="btn btn-outline-primary side-btn">
+    Список виконаних послуг
+  </button>
+</a></li>
+      <li><a class="nav-link active" href="">
+        <button class="btn btn-outline-primary side-btn">Список послуг</button>
+      </a></li>
+
+      
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}

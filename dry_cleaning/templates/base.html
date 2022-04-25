@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <title>Dry cleaning</title>
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+  <link href="//fonts.googleapis.com/css?family=Smokum" rel="stylesheet" />
+</head>
+
+<body>
+  <header>
+    <div class="header-left"><a href="#"><img src="{% static 'img/logo.png' %}" width="50" height="50"></img> </a>
+      <span>dry cleaning</span>
+
+    </div>
+    <div class="header-right">
+      {% if user.is_authenticated %}
+      <div><button class="btn btn-dark my-2 my-sm-0" type="submit">{{user.username}}</button>
+        <a href={% url 'authorize:log_out' %}><button class="btn btn-dark my-2 my-sm-0" type="submit">Вийти</button></a>
+      </div>
+      {% else %}
+      <a href={% url 'authorize:signin' %}><button class="btn btn-dark my-2 my-sm-0" type="submit">Увiйти</button></a>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="container-fluid">
+    <div class="row">
+
+
+      {%block content%} {%endblock%}
+    </div>
+  </div>
+</body>
+
+</html>
