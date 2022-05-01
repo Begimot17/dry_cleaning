@@ -1,0 +1,34 @@
+{% extends 'base.html' %} {% block title %}Приймальник замовлень{% endblock %}
+{% block content %} {% load static %}
+    <style>body{
+        background-color: #DD9324;
+    }
+    button{
+        background-color: #DD9324;
+    }
+    button:hover{
+        background-color: #F6C57A;
+    }</style>
+<div class="sidebar">
+        {% if user.is_authenticated %}
+            <div class="top">
+                <li><a class="nav-link active" href="">
+                    <button class="btn btn-outline-primary side-btn">Фінансовий облік</button>
+                </a></li>
+                <li><a class="nav-link active" href="">
+                    <button class="btn btn-outline-primary side-btn">Аналіз</button>
+                </a></li>
+            </div>
+            <div class="down">
+                <li><a class="nav-link active " href="">
+                    <button class="btn btn-outline-primary side-btn">Реєстрація</button>
+                </a></li>
+            </div>
+
+        {% endif %}
+    </div>
+
+    <div class="row">
+
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% block title %}Приймальник замовлень{% endblock %}
+{% block content %} {% load static %}
+    <style>body{
+        background-color: #FFC632;
+    }
+    button{
+        background-color: #FFC632;
+    }
+    button:hover{
+        background-color: #90A702;
+    }</style>
+<div class="sidebar">
+        {% if user.is_authenticated %}
+            <div class="top">
+                <li><a class="nav-link active" href="">
+                    <button class="btn btn-outline-primary side-btn">Зміна</button>
+                </a></li>
+                <li><a class="nav-link active" href="">
+                    <button class="btn btn-outline-primary side-btn">Обладнання</button>
+                </a></li>
+            <li><a class="nav-link active" href="">
+                    <button class="btn btn-outline-primary side-btn">Виконані замов.</button>
+                </a></li>
+                <li><a class="nav-link active" href="">
+                    <button class="btn btn-outline-primary side-btn">Не виконані замов.</button>
+                </a></li>
+            </div>
+            <div class="down">
+                <li><a class="nav-link active " href="">
+                    <button class="btn btn-outline-primary side-btn">Довідник послуг</button>
+                </a></li>
+            <li><a class="nav-link active " href="">
+                    <button class="btn btn-outline-primary side-btn">Довідник хімічних препаратів </button>
+                </a></li>
+            </div>
+
+        {% endif %}
+    </div>
+
+    <div class="row">
+
+    </div>
+{% endblock %}
