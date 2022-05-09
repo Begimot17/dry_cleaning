@@ -2,10 +2,13 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.models import User
+from .models import Profile
 from django.http import HttpResponseRedirect
+
 
 def index(request):
     return render(request, 'base.html')
+
 
 def log_out(request):
     logout(request)
@@ -14,24 +17,25 @@ def log_out(request):
 
 def reg(request):
     UserModel = get_user_model()
-    user = UserModel.objects.create_user(request.POST['username'], request.POST['email'], request.POST['password'])
-    user.first_name = request.POST['first_name']
-    user.last_name = request.POST['last_name']
+    user = UserModel.objects.create_user(username=request.POST['username'],
+                                         password=request.POST['password'])
     user.save()
-    """ client= Client.objects.create(user=user,email=request.POST['email'],
-                                  first_name=request.POST['first_name'],
-                                  last_name=request.POST['last_name'])
-    client.save() """
-    return HttpResponseRedirect(reverse('accounts:index'))
+    profile = Profile.objects.create(user=user,
+                                     position=request.POST['position'])
+    profile.save()
+    return HttpResponseRedirect(reverse('authorize:signin'))
 
 
 def log(request):
     user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
     if user is not None:
         login(request, user)
+        print('Вход осуществлён')
         return HttpResponseRedirect(reverse('authorize:index'))
-    else: 
-        return HttpResponseRedirect(reverse('authorize/signin'))
+    else:
+        print(user)
+        print('Не получилось войти')
+        return HttpResponseRedirect(reverse('authorize:signin'))
 
 
 def getusers(request):

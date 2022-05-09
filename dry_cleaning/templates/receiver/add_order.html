@@ -1,0 +1,51 @@
+{% extends 'receiver/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#add_order{
+        background-color: #69D1E8;
+    }
+    </style>
+    <form class="register" action={% url 'authorize:reg' %} method='POST'>
+        {% csrf_token %}
+        <label>Створення замовлення</label>
+        <div class="form-group">
+            <label for="position">Клиент</label>
+            <select name="position" id="">
+                <option value="director">Директор</option>
+                <option value="manager">Менеджер</option>
+                <option value="receiver">Приймальник замовлень</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="position">Предмет одягу</label>
+            <select name="position" id="">
+                <option value="director">Директор</option>
+                <option value="manager">Менеджер</option>
+                <option value="receiver">Приймальник замовлень</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="position">Тип услуги</label>
+            <select name="position" id="">
+                <option value="director">Директор</option>
+                <option value="manager">Менеджер</option>
+                <option value="receiver">Приймальник замовлень</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="username">Сума за послугу</label>
+            <input class="form-control item" type="text" name="username" id="username" placeholder="Сума за послугу" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Кількість</label>
+            <input class="form-control item" type="text" name="password" id="password" placeholder="Кількість"
+                   required>
+        </div>
+        <div class="form-group">
+            <div></div>
+            <button class="btn btn-primary btn-block create-account" type="submit">Створити</button>
+        </div>
+    </form>
+{% endblock %}

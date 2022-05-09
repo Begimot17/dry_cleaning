@@ -1,27 +1,28 @@
 {% extends 'base.html' %} {% block title %}Приймальник замовлень{% endblock %}
-{% block content %} {% load static %}
+{% block page %} {% load static %}
     <style>body{
         background-color: #DD9324;
     }
-    button{
+    button, label{
         background-color: #DD9324;
     }
-    button:hover{
+    button:hover, label:hover{
         background-color: #F6C57A;
     }</style>
 <div class="sidebar">
         {% if user.is_authenticated %}
             <div class="top">
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Фінансовий облік</button>
+                <li><a class="nav-link active" href={% url 'director:accounting' %}>
+                    <button id="accounting">Фінансовий облік</button>
                 </a></li>
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Аналіз</button>
+                <li><a class="nav-link active" href={% url 'director:analysis' %}>
+                    <button id="analysis">Аналіз</button>
                 </a></li>
             </div>
             <div class="down">
-                <li><a class="nav-link active " href="">
-                    <button class="btn btn-outline-primary side-btn">Реєстрація</button>
+            <div></div>
+                <li><a class="nav-link active " href={% url 'director:register' %}>
+                    <button id="register">Реєстрація</button>
                 </a></li>
             </div>
 
@@ -29,6 +30,6 @@
     </div>
 
     <div class="row">
-
+    {% block content %} {% endblock %}
     </div>
 {% endblock %}

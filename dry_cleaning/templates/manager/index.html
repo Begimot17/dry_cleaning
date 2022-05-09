@@ -1,36 +1,36 @@
 {% extends 'base.html' %} {% block title %}Приймальник замовлень{% endblock %}
-{% block content %} {% load static %}
+{% block page %} {% load static %}
     <style>body{
         background-color: #FFC632;
     }
-    button{
+    button, input{
         background-color: #FFC632;
     }
-    button:hover{
+    button:hover, input:hover{
         background-color: #90A702;
     }</style>
 <div class="sidebar">
         {% if user.is_authenticated %}
             <div class="top">
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Зміна</button>
+                <li><a class="nav-link active" href={% url 'manager:shift' %}>
+                    <button id="shift">Зміна</button>
                 </a></li>
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Обладнання</button>
+                <li><a class="nav-link active" href={% url 'manager:possession' %}>
+                    <button id="possession">Обладнання</button>
                 </a></li>
-            <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Виконані замов.</button>
+            <li><a class="nav-link active" href={% url 'manager:orders_done' %}>
+                    <button id="orders_done">Виконані замов.</button>
                 </a></li>
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Не виконані замов.</button>
+                <li><a class="nav-link active" href={% url 'manager:orders' %}>
+                    <button id="orders">Не виконані замов.</button>
                 </a></li>
             </div>
             <div class="down">
-                <li><a class="nav-link active " href="">
-                    <button class="btn btn-outline-primary side-btn">Довідник послуг</button>
+                <li><a class="nav-link active " href={% url 'manager:dir_serv' %}>
+                    <button id="dir_serv">Довідник послуг</button>
                 </a></li>
-            <li><a class="nav-link active " href="">
-                    <button class="btn btn-outline-primary side-btn">Довідник хімічних препаратів </button>
+            <li><a class="nav-link active " href={% url 'manager:dir_drugs' %}>
+                    <button id="dir_drugs">Довідник хімічних препаратів </button>
                 </a></li>
             </div>
 
@@ -38,6 +38,6 @@
     </div>
 
     <div class="row">
-
+{% block content %}{% endblock %}
     </div>
 {% endblock %}

@@ -1,27 +1,27 @@
 {% extends 'base.html' %} {% block title %}Приймальник замовлень{% endblock %}
-{% block content %} {% load static %}
+{% block page %} {% load static %}
 
 <div class="sidebar">
         {% if user.is_authenticated %}
             <div class="top">
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Клієнти</button>
+                <li><a class="nav-link active" href={% url 'receiver:clients' %}>
+                    <button id="clients">Клієнти</button>
                 </a></li>
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Замовлення</button>
+                <li><a class="nav-link active" href={% url 'receiver:orders' %}>
+                    <button id="orders">Замовлення</button>
                 </a></li>
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">
+                <li><a class="nav-link active" href={% url 'receiver:services_done' %}>
+                    <button id="services_done">
                         Список виконаних послуг
                     </button>
                 </a></li>
-                <li><a class="nav-link active" href="">
-                    <button class="btn btn-outline-primary side-btn">Список послуг</button>
+                <li><a class="nav-link active" href={% url 'receiver:services' %}>
+                    <button id="services">Список послуг</button>
                 </a></li>
             </div>
             <div class="down">
-                <li><a class="nav-link active " href="">
-                    <button class="btn btn-outline-primary side-btn">Реєстрація замовлення</button>
+                <li><a class="nav-link active " href={% url 'receiver:add_order' %}>
+                    <button id="add_order">Реєстрація замовлення</button>
                 </a></li>
             </div>
 
@@ -29,6 +29,6 @@
     </div>
 
     <div class="row">
-
+    {% block content %} {% endblock %}
     </div>
 {% endblock %}

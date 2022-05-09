@@ -1,0 +1,61 @@
+{% extends 'receiver/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+{% load static %}
+    <style>
+    button#orders{
+        background-color: #69D1E8;
+    }
+    </style>
+    <div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+        <table id="info-table" class="table table_sort">
+      <thead>
+        <th>№</th>
+        <th>Статус виконання </th>
+        <th>Кількість речей</th>
+        <th>Назва послуги</th>
+        <th>Дата прийому</th>
+        <th>Дата видачі</th>
+        <th>Дата та час початку процесу</th>
+        <th>Час</th>
+        <th>Сума</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deleniti dolorum enim illum, incidunt modi optio perferendis placeat quaerat quibusdam quo repellendus repudiandae unde veniam veritatis. Eum iusto maiores vel?</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+
+{% endblock %}

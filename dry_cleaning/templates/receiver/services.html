@@ -1,0 +1,58 @@
+{% extends 'receiver/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+{% load static %}
+<style>
+    button#services{
+        background-color: #69D1E8;
+    }
+    </style>
+    <div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+        <table id="info-table" class="table table_sort">
+      <thead>
+        <th>№</th>
+        <th>Назва послуги</th>
+        <th>Час виконання</th>
+        <th>Обладнання</th>
+        <th>Хімічні препарати</th>
+        <th>Сума послуги</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+          <td>21</td>
+          <td>12</td>
+          <td>21</td>
+        </tr>
+      </tbody>
+    </table></div>
+
+
+{% endblock %}

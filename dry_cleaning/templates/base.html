@@ -6,6 +6,11 @@
     <title>Dry cleaning</title>
     <link href="{% static 'css\style.css' %}" rel="stylesheet"/>
     <link href="//fonts.googleapis.com/css?family=Smokum" rel="stylesheet"/>
+    <script src={% static 'js\loader.js' %}></script>
+    <script src={% static 'js\jquery-3.6.0.js' %}></script>
+    <script src={% static 'js\jquery-ui.js' %}></script>
+    <script src={% static 'js\tablesearch.js' %}></script>
+    <script src={% static 'js\script.js' %}></script>
 </head>
 
 <body>
@@ -13,8 +18,18 @@
     <div class="header-left">
         <a href="#"><img src="{% static 'img\logo.png' %}" width="50" height="50"/></a>
         <span class="title">dry cleaning</span>
+        <a href={% url 'manager:index' %}>
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Менеджер</button>
+            </a>
+    <a href={% url 'director:index' %}>
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Директор</button>
+            </a>
+    <a href={% url 'receiver:index' %}>
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Ресейвер</button>
+            </a>
     </div>
     <div class="header-right">
+
         {% if user.is_authenticated %}
             <div>
                 <button class="btn btn-dark my-2 my-sm-0" type="submit">{{ user.username }}</button>
@@ -31,7 +46,7 @@
 </header>
 
 <div class="container-fluid">
-{% block content %} {% endblock %}
+{% block page %} {% endblock %}
 
 </div>
 </body>
