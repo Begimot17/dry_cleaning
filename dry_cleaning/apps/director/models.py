@@ -1,3 +1,11 @@
 from django.db import models
 
-# Create your models here.
+
+class Expenses(models.Model):
+    lease = models.IntegerField()
+    utilities = models.IntegerField()
+    equipment = models.IntegerField()
+    salary = models.IntegerField()
+    materials = models.IntegerField()
+    preparations = models.IntegerField()
+    date= models.DateTimeField(null=True)

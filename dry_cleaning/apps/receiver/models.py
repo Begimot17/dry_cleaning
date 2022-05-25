@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+class Client(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
 
 class Service(models.Model):
@@ -10,6 +14,7 @@ class Service(models.Model):
 
 
 class Order(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
     status = models.TextField(max_length=50, blank=True)
     quantity = models.IntegerField(blank=True)
     date_of_receipt = models.DateTimeField(null=True)
@@ -19,9 +24,4 @@ class Order(models.Model):
     services = models.ManyToManyField(Service)
 
 
-class Client(models.Model):
-    first_name = models.TextField(max_length=50, blank=True)
-    middle_name = models.TextField(max_length=50, blank=True)
-    last_name = models.TextField(max_length=50, blank=True)
-    phone = models.TextField(max_length=50, blank=True)
-    orders = models.ManyToManyField(Order)
+
