@@ -11,49 +11,35 @@
         <table id="info-table" class="table table_sort">
       <thead>
         <th>№</th>
-        <th>Статус виконання </th>
-        <th>Кількість речей</th>
-        <th>Назва послуги</th>
-        <th>Дата прийому</th>
-        <th>Дата видачі</th>
-        <th>Дата та час початку процесу</th>
-        <th>Час</th>
-        <th>Сума</th>
+        <th>Клиент</th>
+        <th>Предмет одягу</th>
+        <th>Тип услуги</th>
+        <th>Сума за послугу</th>
+        <th>Кількість</th>
+        <th></th>
+        <th></th>
       </thead>
       <tbody>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda deleniti dolorum enim illum, incidunt modi optio perferendis placeat quaerat quibusdam quo repellendus repudiandae unde veniam veritatis. Eum iusto maiores vel?</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
-        <tr>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-          <td>21</td>
-          <td>12</td>
-          <td>21</td>
-        </tr>
+       {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.client.user.first_name }} {{ order.client.user.last_name }}</td>
+                    <td>{{ order.clothes }}</td>
+                    <td>{{ order.service.name }}</td>
+                    <td>{{ order.total }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>
+                        <a href={% url 'receiver:upd_orders' order.id%}>
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href={% url 'receiver:del_orders' order.id%}>
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
       </tbody>
     </table>
 </div>

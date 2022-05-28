@@ -1,0 +1,43 @@
+{% extends 'manager/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#dir_drugs{
+        background-color: #90A702;
+    }
+    </style>
+    <form class="register" action={% url 'manager:reg_drugs' %} method='POST'>
+        {% csrf_token %}
+        <label>Редагування препарату</label>
+        <div class="form-group">
+            <label for="name">Назва препарату</label>
+            <input class="form-control item" type="text" name="name" value="{{ drug.name }}" placeholder="Назва препарату" required>
+        </div>
+        <div class="form-group">
+            <label for="type">Тип</label>
+            <input class="form-control item" type="text" name="type" value="{{ drug.type }}" placeholder="Тип"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="type_by_use">Тип за використанням</label>
+            <input class="form-control item" type="text" name="type_by_use" value="{{ drug.type_by_use }}" placeholder="Тип за використанням"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="quantity">Кількість</label>
+            <input class="form-control item" type="text" name="quantity" value="{{ drug.quantity }}" placeholder="Кількість"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="instruction">Інструкція використання</label>
+            <input class="form-control item" type="text" name="instruction" value="{{ drug.instruction }}" placeholder="Інструкція використання"
+                   required>
+        </div>
+
+            <button class="btn btn-primary btn-block create-account" type="submit">Додати</button>
+
+    </form>
+
+
+{% endblock %}

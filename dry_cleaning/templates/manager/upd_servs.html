@@ -1,0 +1,43 @@
+{% extends 'manager/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#dir_drugs{
+        background-color: #90A702;
+    }
+    </style>
+    <form class="register" action={% url 'manager:update_servs'  serv.id  %} method='POST'>
+        {% csrf_token %}
+        <label>Редагування сервису</label>
+        <div class="form-group">
+            <label for="first_name">Назва послуги</label>
+            <input class="form-control item" type="text" name="name" placeholder="Назва послуги" value="{{ serv.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Час виконання</label>
+            <input class="form-control item" type="time" name="time" placeholder="Час виконання" value="{{ serv.time }}"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Обладнання</label>
+            <input class="form-control item" type="text" name="ownership" placeholder="Обладнання" value="{{ serv.ownership }}"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Хімічні препарати</label>
+            <input class="form-control item" type="text" name="preparations" placeholder="Хімічні препарати" value="{{ serv.preparations }}"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Сума послуги</label>
+            <input class="form-control item" type="text" name="total" placeholder="Сума послуги" value="{{ serv.total }}"
+                   required>
+        </div>
+
+            <button class="btn btn-primary btn-block create-account" type="submit">Update</button>
+
+    </form>
+
+
+{% endblock %}

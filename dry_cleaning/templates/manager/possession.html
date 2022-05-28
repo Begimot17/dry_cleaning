@@ -7,206 +7,48 @@
         background-color: #90A702;
     }
     </style>
-    <div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+    <div><div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+            <a href={% url 'manager:add_possession' %}>
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Додати</button>
+            </a></div>
         <table id="info-table" class="table table_sort">
 
             <thead>
             <th>№</th>
-            <th>Ім’я</th>
-            <th>Прізвище</th>
-            <th>Номер телефону</th>
-            <th>Кількість замовлень</th>
-            <th>Дата останнього замовлення</th>
-            <th>Загальна сума замовлень</th>
+            <th>Назва</th>
+            <th>Тип обладнання</th>
+            <th>Назви послуг</th>
+            <th>Тип хімічного препарату</th>
+            <th>Максимальна вага</th>
+            <th>Час на послугу</th>
+            <th>Дата огляду</th>
+            <th></th>
+            <th></th>
             </thead>
             <tbody>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
+            {% for poss in possessions %}
+                <tr>
+                    <td>{{ poss.id }}</td>
+                    <td>{{ poss.name }}</td>
+                    <td>{{ poss.type }}</td>
+                    <td>{{ poss.service }}</td>
+                    <td>{{ poss.chemical }}</td>
+                    <td>{{ poss.cost }}</td>
+                    <td>{{ poss.hour }}</td>
+                    <td>{{ poss.date }}</td>
+
+                    <td>
+                        <a href={% url 'manager:upd_possession' poss.id%}>
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href={% url 'manager:del_possession' poss.id%}>
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

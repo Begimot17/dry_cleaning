@@ -8,206 +8,43 @@
     }
     </style>
     <div>
-    <input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+    <div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+            <a href={% url 'manager:add_drugs' %}>
+                <button class="btn btn-dark my-2 my-sm-0" type="submit">Додати</button>
+            </a></div>
         <table id="info-table" class="table table_sort">
 
             <thead>
             <th>№</th>
-            <th>Ім’я</th>
-            <th>Прізвище</th>
-            <th>Номер телефону</th>
-            <th>Кількість замовлень</th>
-            <th>Дата останнього замовлення</th>
-            <th>Загальна сума замовлень</th>
+            <th>Назва препарату</th>
+            <th>Тип</th>
+            <th>Тип за використанням</th>
+            <th>Кількість</th>
+            <th>Інструкція використання</th>
+            <th></th>
+            <th></th>
             </thead>
             <tbody>
+            {% for drug in drugs %}
             <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>fsedfews</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
+                <td>{{ drug.id }}</td>
+                <td>{{ drug.name }}</td>
+                <td>{{ drug.type }}</td>
+                <td>{{ drug.type_by_use }}</td>
+                <td>{{ drug.quantity }}</td>
+                <td>{{ drug.instruction }}</td>
+                <td>
+                        <a href={% url 'manager:upd_drugs'  drug.id  %}>
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Update</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a href={% url 'manager:del_drugs'  drug.id  %}>
+                            <button class="btn btn-dark my-2 my-sm-0" type="submit">Delete</button>
+                        </a>
+                    </td>
             </tr>
-            <tr>
-                <td>21</td>
-                <td>34213412</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>7456657</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
-            <tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr><tr>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-                <td>21</td>
-                <td>12</td>
-                <td>21</td>
-            </tr>
+            {% endfor %}
             </tbody>
         </table>
     </div>

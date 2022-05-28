@@ -2,7 +2,7 @@ from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.shortcuts import render
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import *
 from django.http import HttpResponseRedirect
 
 
@@ -21,7 +21,9 @@ def reg(request):
                                          password=request.POST['password'])
     user.save()
     profile = Profile.objects.create(user=user,
-                                     position=request.POST['position'])
+                                     position=request.POST['position'],
+                                         phone=request.POST['phone'],
+                                     total=0)
     profile.save()
     return HttpResponseRedirect(reverse('authorize:signin'))
 

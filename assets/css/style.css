@@ -2,11 +2,7 @@
 
 body {
     background-color: #2795AD;
-    font-size: 20px;
-    font-family: Smokum;
-    font-style: normal;
-    font-variant: normal;
-    font-weight: 800;
+
     margin: 8px 0 0 8px;
 }
 
@@ -62,6 +58,10 @@ select option {
 }
 
 .title {
+    font-family: Smokum;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 800;
     font-size: 36px;
 }
 

@@ -1,0 +1,43 @@
+{% extends 'manager/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#dir_drugs{
+        background-color: #90A702;
+    }
+    </style>
+    <form class="register" action={% url 'manager:reg_servs' %} method='POST'>
+        {% csrf_token %}
+        <label>Додавання сервісу</label>
+        <div class="form-group">
+            <label for="first_name">Назва послуги</label>
+            <input class="form-control item" type="text" name="name" placeholder="Назва послуги" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Час виконання</label>
+            <input class="form-control item" type="time" name="time" placeholder="Час виконання"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Обладнання</label>
+            <input class="form-control item" type="text" name="ownership" placeholder="Обладнання"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Хімічні препарати</label>
+            <input class="form-control item" type="text" name="preparations" placeholder="Хімічні препарати"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Сума послуги</label>
+            <input class="form-control item" type="text" name="total" placeholder="Сума послуги"
+                   required>
+        </div>
+
+            <button class="btn btn-primary btn-block create-account" type="submit">Додати</button>
+
+    </form>
+
+
+{% endblock %}

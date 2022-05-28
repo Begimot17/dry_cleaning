@@ -1,14 +1,14 @@
-{% extends 'receiver/index.html' %}
+{% extends 'manager/index.html' %}
 {% block title %}Визначення вартісної оцінки{% endblock %}
 {% block content %}
-{% load static %}
-<style>
-    button#services{
-        background-color: #69D1E8;
+    {% load static %}
+    <style>
+    button#dir_serv{
+        background-color: #90A702;
     }
     </style>
     <div><div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
-        <a href={% url 'receiver:add_services' %}>
+        <a href={% url 'manager:add_servs' %}>
                 <button class="btn btn-dark my-2 my-sm-0" type="submit">Додати</button>
             </a></div>
         <table>
@@ -23,21 +23,21 @@
         <th></th>
       </thead>
       <tbody>
-        {% for service in services %}
+        {% for serv in servs %}
                 <tr>
-                    <td>{{ service.id }}</td>
-                    <td>{{ service.name }}</td>
-                    <td>{{ service.time }}</td>
-                    <td>{{ service.ownership }}</td>
-                    <td>{{ service.preparations }}</td>
-                    <td>{{ service.total }}</td>
+                    <td>{{ serv.id }}</td>
+                    <td>{{ serv.name }}</td>
+                    <td>{{ serv.time }}</td>
+                    <td>{{ serv.ownership }}</td>
+                    <td>{{ serv.preparations }}</td>
+                    <td>{{ serv.total }}</td>
                     <td>
-                        <a href={% url 'receiver:upd_services' service.id%}>
+                        <a href={% url 'manager:upd_servs' serv.id%}>
                             <button class="btn btn-dark my-2 my-sm-0" type="submit">Update</button>
                         </a>
                     </td>
                     <td>
-                        <a href={% url 'receiver:del_services' service.id%}>
+                        <a href={% url 'manager:del_servs' serv.id%}>
                             <button class="btn btn-dark my-2 my-sm-0" type="submit">Delete</button>
                         </a>
                     </td>

@@ -1,0 +1,33 @@
+{% extends 'receiver/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#clients{
+        background-color: #69D1E8;
+    }
+    </style>
+    <form class="register" action={% url 'receiver:reg_clients' %} method='POST'>
+        {% csrf_token %}
+        <label>Додавання клієнта</label>
+        <div class="form-group">
+            <label for="first_name">І'мя</label>
+            <input class="form-control item" type="text" name="first_name" placeholder="І'мя" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Прізвіще</label>
+            <input class="form-control item" type="text" name="last_name" placeholder="Прізвіще"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Номер телефону</label>
+            <input class="form-control item" type="text" name="phone" placeholder="Номер телефону"
+                   required>
+        </div>
+
+            <button class="btn btn-primary btn-block create-account" type="submit">Додати</button>
+
+    </form>
+
+
+{% endblock %}

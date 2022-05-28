@@ -14,3 +14,15 @@ class Shifts(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     position = models.TextField(max_length=50, blank=True)
     spent_changes = models.IntegerField(blank=True)
+
+class Possession(models.Model):
+    name = models.TextField(max_length=50, blank=True)
+    type = models.TextField(max_length=50, blank=True)
+    service = models.TextField(max_length=50, blank=True)
+    chemical = models.TextField(max_length=50, blank=True)
+    cost = models.TextField(max_length=50, blank=True)
+    hour = models.TextField(max_length=50, blank=True)
+    date = models.TextField(max_length=50, blank=True)
+
+
+

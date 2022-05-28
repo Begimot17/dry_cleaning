@@ -1,0 +1,48 @@
+{% extends 'manager/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#dir_drugs{
+        background-color: #90A702;
+    }
+    </style>
+    <form class="register" action={% url 'manager:reg_possession' %} method='POST'>
+        {% csrf_token %}
+        <label>Додавання обладнання</label>
+        <div class="form-group">
+            <label for="first_name">Назва</label>
+            <input class="form-control item" type="text" name="name" placeholder="Назва послуги" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Тип обладнання</label>
+            <input class="form-control item" type="text" name="type" placeholder="Тип обладнання"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Назви послуг</label>
+            <input class="form-control item" type="text" name="service" placeholder="Назви послуг"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Тип хімічного препарату</label>
+            <input class="form-control item" type="text" name="chemical" placeholder="Тип хімічного препарату"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Максимальна вага</label>
+            <input class="form-control item" type="text" name="cost" placeholder="Максимальна вага"
+                   required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Час на послугу</label>
+            <input class="form-control item" type="time" name="hour" placeholder="Час на послугу"
+                   required>
+        </div>
+
+            <button class="btn btn-primary btn-block create-account" type="submit">Додати</button>
+
+    </form>
+
+
+{% endblock %}
