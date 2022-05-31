@@ -77,6 +77,14 @@ def upd_services(request, id):
     }
     return render(request, 'receiver/upd_services.html', config)
 
+def reg_services(request):
+    profile = Service.objects.create(client= Client.objects.get(time=request.POST['time']),
+                                     ownership=request.POST['ownership'],
+                                   preparations=request.POST['preparations'],
+                                    total = request.POST['total'])
+    profile.save()
+    return HttpResponseRedirect(reverse('receiver:services'))
+
 
 def update_services(request, id):
     service = Service.objects.get(id=id)
@@ -93,14 +101,17 @@ def del_services(request, id):
     return HttpResponseRedirect(reverse('receiver:services'))
 
 
-def reg_services(request):
-    profile = Service.objects.create(name=request.POST['name'],
-                                     time=request.POST['time'],
-                                     ownership=request.POST['ownership'],
-                                     preparations=request.POST['preparations'],
-                                     total=request.POST['total'])
-    profile.save()
-    return HttpResponseRedirect(reverse('receiver:services'))
+def reg(request):
+    UserModel = get_user_model()
+    user = UserModel.objects.create_user(request.POST['username'], request.POST['email'], request.POST['password'])
+    user.first_name = request.POST['first_name']
+    user.last_name = request.POST['last_name']
+    user.save()
+    """ client= Client.objects.create(user=user,email=request.POST['email'],
+                                  first_name=request.POST['first_name'],
+                                  last_name=request.POST['last_name'])
+    client.save() """
+    return HttpResponseRedirect(reverse('accounts:index'))
 
 
 def services_done(request):
