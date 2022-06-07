@@ -28,20 +28,20 @@
             <tbody>
             {% for client in clients %}
                 <tr>
-                    <td>{{ client.id }}</td>
-                    <td>{{ client.user.first_name }}</td>
-                    <td>{{ client.user.last_name }}</td>
-                    <td>{{ client.phone }}</td>
-                    <td>21</td>
-                    <td>12</td>
-                    <td>21</td>
+                    <td>{{ client.client.id }}</td>
+                    <td>{{ client.client.user.first_name }}</td>
+                    <td>{{ client.client.user.last_name }}</td>
+                    <td>{{ client.client.phone }}</td>
+                    <td>{{ client.count }}</td>
+                    <td>{{ client.date }}</td>
+                    <td>{{ client.total }}</td>
                     <td>
-                        <a href={% url 'receiver:upd_clients'  client.id  %}>
+                        <a href={% url 'receiver:upd_clients'  client.client.id  %}>
                             <button class="btn btn-dark my-2 my-sm-0" type="submit">Update</button>
                         </a>
                     </td>
                     <td>
-                        <a href={% url 'receiver:del_clients'  client.id  %}>
+                        <a href={% url 'receiver:del_clients'  client.client.id  %}>
                             <button class="btn btn-dark my-2 my-sm-0" type="submit">Delete</button>
                         </a>
                     </td>

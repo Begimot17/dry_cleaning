@@ -4,8 +4,15 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .models import *
 from django.http import HttpResponseRedirect
+from datetime import date
 
-
+class Client_info(object):
+    def __init__(self,client, count, total, date):
+        """Constructor"""
+        self.client = client
+        self.count = count
+        self.total = total
+        self.date = date
 def index(request):
     return render(request, 'receiver/index.html')
 
@@ -51,9 +58,25 @@ def reg_clients(request):
 
 
 def clients(request):
-    a = Client.objects.all()
+    client = Client.objects.all()
+    clients = []
+    orders = Order.objects.all()
+    for cli in client:
+        count = 0
+        total = 0
+        date = 0
+        for ord in orders:
+            if ord.client == cli:
+                count += 1
+                total += ord.total
+                if date == 0:
+                    date = ord.date_of_issue
+                if date < ord.date_of_issue:
+                    date = ord.date_of_issue
+        clients.append(Client_info(cli, count, total, date))
+
     config = {
-        'clients': a
+        'clients': clients
     }
     return render(request, 'receiver/clients.html', config)
 
@@ -78,7 +101,8 @@ def upd_services(request, id):
     return render(request, 'receiver/upd_services.html', config)
 
 def reg_services(request):
-    profile = Service.objects.create(client= Client.objects.get(time=request.POST['time']),
+    profile = Service.objects.create(name=request.POST['name'],
+                                     time=request.POST['time'],
                                      ownership=request.POST['ownership'],
                                    preparations=request.POST['preparations'],
                                     total = request.POST['total'])
@@ -158,7 +182,7 @@ def update_orders(request, id):
 
 
 def del_orders(request, id):
-    Service.objects.get(id=id).delete()
+    Order.objects.get(id=id).delete()
     return HttpResponseRedirect(reverse('receiver:orders'))
 
 
@@ -167,6 +191,7 @@ def reg_orders(request):
                                      quantity=request.POST['quantity'],
                                    clothes=request.POST['clothes'],
                                     total = request.POST['total'],
-                                    service = Service.objects.get(id=request.POST['service']))
+                                    service = Service.objects.get(id=request.POST['service']),
+                                   date_of_issue=date.today())
     profile.save()
     return HttpResponseRedirect(reverse('receiver:orders'))
