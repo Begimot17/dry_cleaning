@@ -185,7 +185,16 @@ def del_orders(request, id):
     Order.objects.get(id=id).delete()
     return HttpResponseRedirect(reverse('receiver:orders'))
 
-
+def orders_done(request):
+    a = Order.objects.all()
+    list = []
+    for ord in a:
+        if ord.status == "Success":
+            list.append(ord)
+    config = {
+        'orders': list
+    }
+    return render(request, 'receiver/orders_done.html',config)
 def reg_orders(request):
     profile = Order.objects.create(client= Client.objects.get(id=request.POST['client']),
                                      quantity=request.POST['quantity'],

@@ -1,0 +1,40 @@
+{% extends 'receiver/index.html' %}
+{% block title %}Визначення вартісної оцінки{% endblock %}
+{% block content %}
+    {% load static %}
+    <style>
+    button#services_done{
+        background-color: #69D1E8;
+    }
+    </style>
+    <div><input id="search-text" class="search" type="text" placeholder="Поиск" onkeyup="tableSearch()">
+        <table id="info-table" class="table table_sort">
+
+            <thead>
+        <th>№</th>
+        <th>Клиент</th>
+        <th>Предмет одягу</th>
+        <th>Тип услуги</th>
+        <th>Сума за послугу</th>
+        <th>Кількість</th>
+        <th>Дата завершення</th>
+        <th></th>
+      </thead>
+      <tbody>
+       {% for order in orders %}
+                <tr>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.client.user.first_name }} {{ order.client.user.last_name }}</td>
+                    <td>{{ order.clothes }}</td>
+                    <td>{{ order.service.name }}</td>
+                    <td>{{ order.total }}</td>
+                    <td>{{ order.quantity }}</td>
+                    <td>{{ order.date_of_issue }}</td>
+                </tr>
+            {% endfor %}
+      </tbody>
+        </table>
+    </div>
+
+
+{% endblock %}
